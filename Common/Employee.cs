@@ -6,11 +6,11 @@ namespace Mamaspital.Common
 {
     class Employee
     {
-        private Guid ID { get; }
-        private string Name { get; }
-        private DateTime DateOfBirth { get; }
-        private DateTime EmploymentDate { get; }
-        private int WorkHours { get; }
+        public Guid ID { get; }
+        public string Name { get;}
+        public DateTime DateOfBirth { get;}
+        public DateTime EmploymentDate { get;}
+        public int WorkHours { get; set; }
 
         public Employee(string Name, DateTime DateOfBirth, DateTime EmploymentDate, int WorkHours)        
         {
