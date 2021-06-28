@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\idoag\\source\\repos\\Mamaspital\\Mamaspital.csproj": {}
+    "C:\\Users\\Ido\\source\\repos\\Mamaspital\\Mamaspital.csproj": {}
   },
   "projects": {
-    "C:\\Users\\idoag\\source\\repos\\Mamaspital\\Mamaspital.csproj": {
+    "C:\\Users\\Ido\\source\\repos\\Mamaspital\\Mamaspital.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\idoag\\source\\repos\\Mamaspital\\Mamaspital.csproj",
+        "projectUniqueName": "C:\\Users\\Ido\\source\\repos\\Mamaspital\\Mamaspital.csproj",
         "projectName": "Mamaspital",
-        "projectPath": "C:\\Users\\idoag\\source\\repos\\Mamaspital\\Mamaspital.csproj",
-        "packagesPath": "C:\\Users\\idoag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\idoag\\source\\repos\\Mamaspital\\obj\\",
+        "projectPath": "C:\\Users\\Ido\\source\\repos\\Mamaspital\\Mamaspital.csproj",
+        "packagesPath": "C:\\Users\\Ido\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ido\\source\\repos\\Mamaspital\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\idoag\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ido\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "System.Data.SQLite": {
               "target": "Package",
@@ -58,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
