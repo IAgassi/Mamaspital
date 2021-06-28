@@ -9,13 +9,18 @@ namespace Mamaspital.BL
     {
         public static void DisplayAll(List<Employee> employees)
         {
-            for(int i=0; i<employees.Count; i++)
+            for (int i = 0; i < employees.Count; i++)
             {
                 Console.WriteLine();
                 Console.WriteLine("Name: " + employees[i].Name);
                 Console.WriteLine("ID: " + employees[i].ID);
                 Console.WriteLine("--------------------------");
             }
+        }
+
+        public static List<Employee> Initalize() 
+        {
+            return DAL.DBAccess.getEmployees();
         }
     }
 }

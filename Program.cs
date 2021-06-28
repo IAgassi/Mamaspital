@@ -14,8 +14,7 @@ namespace Mamaspital
     {
         static void Main(string[] args)
         {
-            MenuManager.Menu(new List<Employee>());
-            
+            MenuManager.Menu(BL.BLManager.Initalize());
         }
     }
 }

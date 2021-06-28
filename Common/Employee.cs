@@ -6,19 +6,22 @@ namespace Mamaspital.Common
 {
     class Employee
     {
-        public Guid ID { get; }
+        public string ID { get; }
         public string Name { get;}
-        public DateTime DateOfBirth { get;}
-        public DateTime EmploymentDate { get;}
         public int WorkHours { get; set; }
 
-        public Employee(string Name, DateTime DateOfBirth, DateTime EmploymentDate, int WorkHours)        
+        public Employee(string Name, int WorkHours, string ID = "sheesh")
         {
             this.Name = Name;
-            this.DateOfBirth = DateOfBirth;
-            this.EmploymentDate = EmploymentDate;
             this.WorkHours = WorkHours;
-            this.ID = new Guid();
+            if (ID == "sheesh")
+            {
+                this.ID = Guid.NewGuid().ToString();
+            }
+            else
+            {
+                this.ID = ID;
+            }
         }
     }
 }
