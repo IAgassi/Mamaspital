@@ -12,7 +12,7 @@ namespace Mamaspital.UI
         {
             Console.WriteLine();
             Console.WriteLine("1 - Display all Employees");
-            Console.WriteLine("2 - Add new Employee");
+            Console.WriteLine("2 - Clock in");
             Console.WriteLine("3 - Add new Job");
             Console.WriteLine("4 - Add new Rank");
             Console.WriteLine("5 - Calculate Employee Salary");
@@ -27,7 +27,8 @@ namespace Mamaspital.UI
                     break;
 
                 case "2":
-                    Console.WriteLine("Launching missiles...");
+                    AddHours(employees);
+                   
                     break;
 
                 case "3":
@@ -46,5 +47,32 @@ namespace Mamaspital.UI
             }
             Menu(employees);
         }
+
+        public static void AddHours(List<Employee> employees)
+        {
+            Console.WriteLine("Enter the ID of the employee");
+            var dude = BLManager.FindEmployeeByID(employees, Console.ReadLine());
+            if (dude != null)
+            {
+                Console.WriteLine("How many hours did this employee work this month?");
+                string input = Console.ReadLine();
+                int number;
+                if (Int32.TryParse(input, out number))
+                {
+                    dude.setWorkHours(number);
+                }
+                else
+                {
+                    Console.WriteLine("that's not a number dumbass!");
+                    AddHours(employees);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Employee not found!");
+                AddHours(employees);
+            }
+        }
+
     }
 }

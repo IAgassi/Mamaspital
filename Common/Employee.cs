@@ -23,5 +23,10 @@ namespace Mamaspital.Common
                 this.ID = ID;
             }
         }
+
+        public void setWorkHours(int hours)
+        {
+            this.WorkHours = hours;
+        }
     }
 }

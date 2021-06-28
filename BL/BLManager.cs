@@ -14,13 +14,27 @@ namespace Mamaspital.BL
                 Console.WriteLine();
                 Console.WriteLine("Name: " + employees[i].Name);
                 Console.WriteLine("ID: " + employees[i].ID);
+                Console.WriteLine("Work Hours: " + employees[i].WorkHours);
                 Console.WriteLine("--------------------------");
             }
         }
 
-        public static List<Employee> Initalize() 
+        public static List<Employee> Initalize()
         {
             return DAL.DBAccess.getEmployees();
         }
+
+        public static Employee FindEmployeeByID(List<Employee> employees, string id)
+        {
+            for (int i = 0; i < employees.Count; i++)
+            {
+                if(employees[i].ID == id)
+                {
+                    return employees[i];
+                }
+            }
+            return null;
+        }
+
     }
 }

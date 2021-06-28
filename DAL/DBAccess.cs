@@ -34,11 +34,10 @@ namespace Mamaspital.DAL
         {
             SQLiteConnection con = DBAccess.CreateConnection();
             string sql = "select * from employees";
-            //SQLiteCommand cmd = new SQLiteCommand("delete from employees", sqlite_conn);
             List<Employee> l1 = new List<Employee>();
             using var cmd = new SQLiteCommand(sql, con);
             using SQLiteDataReader rdr = cmd.ExecuteReader();
-            while (rdr.Read())
+            while(rdr.Read())
             {
                 //Console.WriteLine($"{rdr.GetInt32(0)} {rdr.GetString(1)} {rdr.GetInt32(2)}");
                 var id = rdr.GetString(0);
