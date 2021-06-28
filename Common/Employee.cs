@@ -27,9 +27,17 @@ namespace Mamaspital.Common
             }
         }
 
-        public void setWorkHours(int hours)
+        public void SetWorkHours(int hours)
         {
-            this.WorkHours = hours;
+            WorkHours = hours;
+            string sql = String.Format("UPDATE Employees SET Work_Hours = {0} WHERE Employee_ID = '{1}'", 
+                this.WorkHours, this.ID);
+            DAL.DBAccess.UpdateTable(sql);
+        }
+
+        public double getSalary()
+        {
+            return Role.CalcSalary(this.WorkHours);
         }
     }
 }

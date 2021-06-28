@@ -13,9 +13,7 @@ namespace Mamaspital.UI
             Console.WriteLine();
             Console.WriteLine("1 - Display all Employees");
             Console.WriteLine("2 - Clock in");
-            Console.WriteLine("3 - Add new Job");
-            Console.WriteLine("4 - Add new Rank");
-            Console.WriteLine("5 - Calculate Employee Salary");
+            Console.WriteLine("3 - Calculate Employee Salary");
             Console.WriteLine("0 - Exit System");
 
             string input = Console.ReadLine();
@@ -32,7 +30,7 @@ namespace Mamaspital.UI
                     break;
 
                 case "3":
-                    Console.WriteLine("Displying Missile Storage...");
+                    SalaryCalculation(employees);
                     break;
 
                 case "0":
@@ -59,7 +57,7 @@ namespace Mamaspital.UI
                 int number;
                 if (Int32.TryParse(input, out number))
                 {
-                    dude.setWorkHours(number);
+                    dude.SetWorkHours(number);
                 }
                 else
                 {
@@ -71,6 +69,22 @@ namespace Mamaspital.UI
             {
                 Console.WriteLine("Employee not found!");
                 AddHours(employees);
+            }
+        }
+
+        public static void SalaryCalculation(List<Employee> employees)
+        {
+            Console.WriteLine("Enter the ID of the employee");
+            var dude = BLManager.FindEmployeeByID(employees, Console.ReadLine());
+            if (dude != null)
+            {
+                var salary = dude.getSalary();
+                Console.WriteLine("{0} monthly salary is: {1} NIS!", dude.Name, salary);
+            }
+            else
+            {
+                Console.WriteLine("Employee not found!");
+                SalaryCalculation(employees);
             }
         }
 

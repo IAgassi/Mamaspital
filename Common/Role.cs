@@ -8,16 +8,31 @@ namespace Mamaspital.Common
     {
         public string RoleName;
         public string RoleType;
-        public float Risk;
+        public double Risk;
         public List <Rank> Ranks;
 
-        //todo: add ranksssss , List<Rank> ranks
-        public Role(string JobName, string JobType,  float Risk)
+        public Role(string JobName, string JobType,  double Risk, List <Rank> Ranks)
         {
             this.RoleType = JobType;
             this.RoleName = JobName;
             this.Risk = Risk;
-            //this.Ranks = ranks;
+            this.Ranks = Ranks;
+        }
+
+        public double CalcSalary(int WorkHours)
+        {
+            double Wage = 35.2;
+            double salary = 0;
+            for (int i = 0; i < Ranks.Count; i++)
+            {
+                Rank CurrentRank = Ranks[i];
+                salary += CurrentRank.GetBonuses(Wage, WorkHours);
+            }
+            if(this.Risk > 0)
+            {
+                salary += (this.Risk + 1) * Wage * WorkHours;
+            }
+            return salary;
         }
 
     }

@@ -6,17 +6,32 @@ namespace Mamaspital.Common
 {
     class Rank
     {
-        private string RankName;
-        private int ExpansionRate;
-        private int FixedHours;
-        private int Risk;
+        public string RankName { get; }
+        public double ExpansionRate { get; }
+        public int FixedHours { get; }
+        public int PaymentHours { get; }
 
-        public Rank( string RankName, int ExpansionRate, int FixedHours, int Risk)
+        public Rank(string RankName, double ExpansionRate, int FixedHours, int PaymentHours = 0)
         {
             this.RankName = RankName;
             this.ExpansionRate = ExpansionRate;
             this.FixedHours = FixedHours;
-            this.Risk = Risk;
+            this.PaymentHours = PaymentHours;
+        }
+
+        public double GetBonuses(double Wage, int WorkHours)
+        {
+            double BonusMoney = 0;
+            Wage *= this.ExpansionRate;
+            if(WorkHours > this.FixedHours && this.FixedHours > 0)
+            {
+                BonusMoney += this.PaymentHours * Wage;
+            }
+            else
+            {
+                BonusMoney += WorkHours * Wage;
+            }
+            return BonusMoney;
         }
     }
 }
