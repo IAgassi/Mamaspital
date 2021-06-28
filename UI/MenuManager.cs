@@ -79,7 +79,7 @@ namespace Mamaspital.UI
             if (dude != null)
             {
                 var salary = dude.getSalary();
-                Console.WriteLine("{0} monthly salary is: {1} NIS!", dude.Name, salary);
+                Console.WriteLine("{0}'s monthly salary is: {1} NIS!", dude.Name, salary);
             }
             else
             {
