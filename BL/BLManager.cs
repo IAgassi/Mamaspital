@@ -15,6 +15,7 @@ namespace Mamaspital.BL
                 Console.WriteLine("Name: " + employees[i].Name);
                 Console.WriteLine("ID: " + employees[i].ID);
                 Console.WriteLine("Work Hours: " + employees[i].WorkHours);
+                Console.WriteLine("Position: " + employees[i].Role.RoleName);
                 Console.WriteLine("--------------------------");
             }
         }

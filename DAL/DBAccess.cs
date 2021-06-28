@@ -33,20 +33,46 @@ namespace Mamaspital.DAL
         public static List<Employee> getEmployees()
         {
             SQLiteConnection con = DBAccess.CreateConnection();
-            string sql = "select * from employees";
-            List<Employee> l1 = new List<Employee>();
+            string sql = "select * from Employees";
+            List<Employee> EmployeeList = new List<Employee>();
             using var cmd = new SQLiteCommand(sql, con);
-            using SQLiteDataReader rdr = cmd.ExecuteReader();
-            while(rdr.Read())
+            try
             {
-                //Console.WriteLine($"{rdr.GetInt32(0)} {rdr.GetString(1)} {rdr.GetInt32(2)}");
-                var id = rdr.GetString(0);
-                var name = rdr.GetString(1);
-                var hours = rdr.GetInt32(2);
-                l1.Add(new Employee(name, hours, id));
+                using SQLiteDataReader cur = cmd.ExecuteReader();
+                while (cur.Read())
+                {
+                    var id = cur.GetString(0);
+                    var name = cur.GetString(1);
+                    var hours = cur.GetInt32(2);
+                    var role_id = cur.GetInt32(3);
+                    Employee emp = new Employee(name, hours, id, GetSpecificRole(role_id, con));
+                    EmployeeList.Add(emp);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
             con.Close();
-            return l1;
+            return EmployeeList;
+        }
+
+        public static Role GetSpecificRole(int role_id, SQLiteConnection con)
+        {
+            string sql = "select * from roles where Role_ID = " + role_id;
+            using var cmd = new SQLiteCommand(sql, con);
+            using SQLiteDataReader cur = cmd.ExecuteReader();
+            while (cur.Read())
+            {
+                string role_name = cur.GetString(1);
+                string job_type = cur.GetString(2);
+                float risk = cur.GetFloat(3);
+                //todo: add ranks!
+                con.Close();
+                return new Role(role_name, job_type, risk);
+            }
+            Console.WriteLine("No such role exists!");
+            return null;
         }
     }
 }

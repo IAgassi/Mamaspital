@@ -6,18 +6,18 @@ namespace Mamaspital.Common
 {
     class Role
     {
-        private string JobType;
-        private string JobName;
-        private int HourlyRate;
-        private List <Rank> Ranks;
+        public string RoleName;
+        public string RoleType;
+        public float Risk;
+        public List <Rank> Ranks;
 
-
-        public Role(string JobType, string JobName, int HourlyRate, List<Rank> ranks)
+        //todo: add ranksssss , List<Rank> ranks
+        public Role(string JobName, string JobType,  float Risk)
         {
-            this.JobType = JobType;
-            this.JobName = JobName;
-            this.HourlyRate = HourlyRate;
-            this.Ranks = ranks;
+            this.RoleType = JobType;
+            this.RoleName = JobName;
+            this.Risk = Risk;
+            //this.Ranks = ranks;
         }
 
     }
