@@ -13,7 +13,6 @@ namespace Mamaspital.DAL
     {
         public static SQLiteConnection CreateConnection()
         {
-            Console.WriteLine(Directory.GetCurrentDirectory());
             string cs = @"data source = mamaspital.db";
             SQLiteConnection sqlite_conn;
             sqlite_conn = new SQLiteConnection(cs);
