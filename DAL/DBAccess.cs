@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Mamaspital.Common;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Mamaspital.DAL
 {
@@ -12,11 +13,10 @@ namespace Mamaspital.DAL
     {
         public static SQLiteConnection CreateConnection()
         {
-            string cs = @"URI=file:C:\Users\idoag\source\repos\Mamaspital\DAL\mamaspital.db";
+            Console.WriteLine(Directory.GetCurrentDirectory());
+            string cs = @"data source = mamaspital.db";
             SQLiteConnection sqlite_conn;
-            // Create a new database connection:
             sqlite_conn = new SQLiteConnection(cs);
-            // Open the connection:
             try
             {
                 sqlite_conn.Open();
